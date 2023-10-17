@@ -7,5 +7,6 @@ int _printf(const char *format, ...);
 int cus_strlen(const char *str);
 void cus_putchar(char c, int *count);
 void cus_puts(const char *str, int *count);
+int cus_putint(int num, int *count);
 #endif
 
