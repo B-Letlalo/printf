@@ -3,6 +3,7 @@
 #include <stdarg.h>
 #include <string.h>
 #include <unistd.h>
+/*function prototypes*/
 int _printf(const char *format, ...);
 int cus_strlen(const char *str);
 void cus_putchar(char c, int *count);
