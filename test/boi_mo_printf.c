@@ -9,10 +9,10 @@
  */
 int _printf(const char *format, ...)
 {
-	int no_char_printed = 0, *p;
+	int no_char_printed = 0;
+	char c;
 
 	va_list arg_list;
-	p = &no_char_printed;
 
 	if (format == NULL)
 		return (-1);
@@ -21,7 +21,8 @@ int _printf(const char *format, ...)
 	{
 		if (*format != '%')
 		{
-			__putchar(p, *format);
+			write(1, format, 1);
+			no_char_printed++;
 		}
 		else
 		{
@@ -30,12 +31,14 @@ int _printf(const char *format, ...)
 				break;
 			if (*format == '%')
 			{
-				__putchar(p, *format);
+				write(1, format, 1);
+				no_char_printed++;
 			}
 			if (*format == 'c')
 			{
-				char c = va_arg(arg_list, int);
-				__putchar(p, c);
+				c = va_arg(arg_list, int);
+				write(1, &c, 1);
+				no_char_printed++;
 			}
 			else if (*format == 's')
 			{
@@ -43,7 +46,7 @@ int _printf(const char *format, ...)
 				int count = 0;
 
 				write(1, str, count);
-				no_char_printed +=strlen(str);
+				no_char_printed +=strlen(:tr);
 			}
 		}
 			format++;
